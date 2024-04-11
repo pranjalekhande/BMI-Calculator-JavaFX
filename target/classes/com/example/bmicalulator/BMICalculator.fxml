@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--Name: Pranjal Prasanna Ekhande-->
+<!--Date: 31 March 2024-->
+<!--Filename: BMICalculator.fxml-->
+<!--Description: defines the layout and structure of the user interface (UI) for the BMI Calculator application -->
+<!--             It specifies the arrangement of UI components such as labels, text fields other controls -->
+<!--             within containers like VBox and HBox. -->
+
+<!--Imports-->
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<!--start of vbox-->
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.bmicalulator.BMICalculatorController">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Calculate Your BMI"/>
+    <Label text="Unit System:"/>
+    <ComboBox fx:id="unitComboBox" onAction="#onUnitChanged">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Metric (kg/cm)"/>
+                <String fx:value="Imperial (lbs/ft/in)"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <Label fx:id="heightLabel" text="Height (cm):" visible="true"/>
+    <HBox>
+        <TextField fx:id="feetCmField" promptText="Centimeters" visible="true"/>
+        <Label fx:id="inchesLabel" text="inch" visible="false"/>
+        <TextField fx:id="inchesField" promptText="Inches" visible="false"/>
+    </HBox>
+
+    <Label fx:id="weightLabel" text="Weight (kg):"/>
+    <TextField fx:id="weightField" promptText="Kilograms"/>
+    <Button text="Calculate" onAction="#calculateBMI"/>
+    <Label fx:id="calculatedBMI"/>
+    <Label fx:id="bmiCategory"/>
+
+    <!--end of vbox-->
+</VBox>
+
